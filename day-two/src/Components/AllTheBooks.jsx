@@ -15,9 +15,10 @@ import scifi from '../data/books/scifi.json'
 
 class AllTheBooks extends Component{
     state={
-        selectedBook:null,
+        
         genre:"Fantasy",
         renderbook:fantasy,
+        selectedBook:fantasy[0],
     }
     render(){
         return(
