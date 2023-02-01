@@ -1,10 +1,11 @@
 import { Component } from "react"
-import { Container, Row, Col , Card, Badge, Button } from "react-bootstrap"
+import { Container, Row, Col , Card,  Button } from "react-bootstrap"
 import fantasy from '../data/books/fantasy.json'
 import history from '../data/books/history.json'
 import horror from '../data/books/horror.json'
 import romance from '../data/books/romance.json'
 import scifi from '../data/books/scifi.json'
+import SingleBook from "./SingleBook"
 
 
  
@@ -86,16 +87,7 @@ class AllTheBooks extends Component{
             <Container className="d-flex justify-content-center">
             <Row className="mt-4 justify-content-center single-card">
             <Col className="text-center " >
-                <Card>
-                    <Card.Img variant="top" src={this.state.selectedBook?.img} className="single-book"/>
-                         <Card.Body>
-                                    <Card.Title>{this.state.selectedBook ? this.state.selectedBook.title : ""}</Card.Title>
-                                    <Card.Text>
-                                    <Badge variant="danger">{this.state.selectedBook?.price}</Badge>{' '}
-                                </Card.Text>
-   
-                        </Card.Body>
-                </Card>
+                <SingleBook CurrentBook={this.state.selectedBook}/>
 
             </Col>
             </Row>
