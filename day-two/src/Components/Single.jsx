@@ -3,6 +3,7 @@ import {Card , Col} from 'react-bootstrap'
 class Single extends Component{
     state={
         selected:false,
+       
     }
     render(){
         return(
@@ -10,7 +11,7 @@ class Single extends Component{
             
       
             <Card onClick={()=>{
-                this.setState({selected:true,}
+                this.setState({selected:!this.state.selected,}
                     
                     )
             }}

@@ -1,6 +1,11 @@
 import fantasy from '../data/books/fantasy.json'
+import history from '../data/books/history.json'
+import horror from '../data/books/horror.json'
+import romance from '../data/books/romance.json'
+import scifi from '../data/books/scifi.json'
+
 import Single from './Single'
-import { Row, Container , Form, Col} from 'react-bootstrap'
+import { Row, Container , Form, Col, Button} from 'react-bootstrap'
 import { Component } from 'react'
 
 
@@ -13,6 +18,8 @@ import { Component } from 'react'
 class BookList extends Component{
     state={
         search:'',
+        genre:"Fantasy",
+        renderbook:fantasy,
         
     }
 
@@ -44,13 +51,53 @@ class BookList extends Component{
           </Form>
                     </Col>
                 </Row>
+                <Container className="d-flex justify-content-around mb-4">
                  
+                <Button variant="outline-dark" onClick={()=>{
+                        this.setState({
+                           genre:"Fantasy",
+                           renderbook:fantasy
+                        })
+                     }}>Fantasy</Button>
+
+                      <Button variant="outline-dark" onClick={()=>{
+                        this.setState({
+                           genre:"History",
+                           renderbook:history
+                        })
+                     }}>History</Button>
+
+                      <Button variant="outline-dark" onClick={()=>{
+                        this.setState({
+                           genre:"Horror",
+                           renderbook:horror
+                        })
+                     }}>Horror</Button>
+
+                      <Button variant="outline-dark" onClick={()=>{
+                        this.setState({
+                           genre:"Romance",
+                           renderbook:romance
+                        })
+                     }}>Romance</Button>
+                      <Button variant="outline-dark" onClick={()=>{
+                        this.setState({
+                           genre:"Sci-Fi",
+                           renderbook:scifi
+                        })
+                     }}>Sci-Fi</Button>
+
+
+</Container>
+<h3>{this.state.genre}</h3>
                     <Row className="mt-4 ">
 
           
 
    
 
+
+                    
 
        {
        
@@ -60,8 +107,8 @@ class BookList extends Component{
             //     )
             // })
 
-
-            fantasy.filter((b)=>
+         
+            this.state.renderbook.filter((b)=>
                     b.title.toLowerCase().includes(this.state.search)
             )
             .map((b)=>

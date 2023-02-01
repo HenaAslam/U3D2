@@ -85,8 +85,11 @@ class AllTheBooks extends Component{
                
             </Row>
             <Container className="d-flex justify-content-center">
+          
             <Row className="mt-4 justify-content-center single-card">
+            <h3 className="small"><strong>Click one of the books to view! </strong></h3>
             <Col className="text-center " >
+
                 <SingleBook CurrentBook={this.state.selectedBook}/>
 
             </Col>
