@@ -9,12 +9,6 @@ import { Row, Container , Form, Col, Button} from 'react-bootstrap'
 import { Component } from 'react'
 
 
-
-
-
-
-
-
 class BookList extends Component{
     state={
         search:'',
@@ -22,11 +16,6 @@ class BookList extends Component{
         renderbook:fantasy,
         
     }
-
- 
-    
-  
-
     render(){
         
         
@@ -41,7 +30,7 @@ class BookList extends Component{
               
               <Form.Control type="text" placeholder="Search" value={this.state.search} onChange={(e)=>{
                 this.setState({search:e.target.value})
-                console.log(this.state.search)
+          
                 
               }}/>
             
@@ -91,23 +80,8 @@ class BookList extends Component{
 </Container>
 <h3>{this.state.genre}</h3>
                     <Row className="mt-4 ">
-
-          
-
-   
-
-
-                    
-
        {
        
-            // fantasy.map((book)=>{
-            //     return(
-            //         <Single bookk={book} key={book.asin} />
-            //     )
-            // })
-
-         
             this.state.renderbook.filter((b)=>
                     b.title.toLowerCase().includes(this.state.search)
             )
@@ -116,23 +90,10 @@ class BookList extends Component{
             )
             }
 
-              
-
-
-  
-
-        
-                     
-                  
                          </Row>
                     </Container>
         )
     }
-    
-        
-        
-    
-       
     
 
 }
