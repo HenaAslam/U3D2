@@ -13,7 +13,21 @@ class CommentList extends Component{
  
 // https://striveschool-api.herokuapp.com/api/comments/:elementId
 
-  
+deleteComment = async (id) => {
+    let res = await fetch(
+      "https://striveschool-api.herokuapp.com/api/comments/" + id,
+
+      {
+        method: "DELETE",
+        headers: {
+            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2NhNTdlM2U3MzczODAwMTUzNzQ2YjMiLCJpYXQiOjE2NzUzMzkzOTEsImV4cCI6MTY3NjU0ODk5MX0.E3m_mPnlfAunzuI_mq8omy-G0FIO0pqc-fgXDp1vONY"  ,
+        },
+      }
+    );
+   console.log(res)
+  };
+
+
     fetchComments=async()=>{
         try{
            
@@ -51,10 +65,11 @@ class CommentList extends Component{
                 {this.state.comments.map((c)=>{
                     return     <ListGroup.Item key={c._id}>{c.comment} | Rating : {c.rate}
                   
-                     <Button variant="outline-danger" size="sm"  onClick={(c) => {
-                  console.log(c)
+                     <Button variant="outline-danger" size="sm" className="ml-2" onClick={(e) => {
+                  e.preventDefault()
+                  this.deleteComment(c._id);
                   
-                }}>Delete</Button></ListGroup.Item>
+                }}>x</Button></ListGroup.Item>
                 })}
            
           </ListGroup>
