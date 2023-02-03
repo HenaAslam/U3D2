@@ -63,13 +63,13 @@ deleteComment = async (id) => {
             {this.state.isError &&   ( <div className="d-flex justify-content-center mt-1"><Alert variant="danger">Something's Wrong..😒</Alert></div>)}
             <ListGroup>
                 {this.state.comments.map((c)=>{
-                    return     <ListGroup.Item key={c._id}>{c.comment} | Rating : {c.rate}
+                    return     <ListGroup.Item key={c._id}>{c.comment} | Rating : {c.rate} | {c.author}
                   
                      <Button variant="outline-danger" size="sm" className="ml-2" onClick={(e) => {
                   e.preventDefault()
                   this.deleteComment(c._id);
                   
-                }}>x</Button></ListGroup.Item>
+                }}>X</Button></ListGroup.Item>
                 })}
            
           </ListGroup>

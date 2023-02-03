@@ -7,7 +7,7 @@ class AddComment extends Component{
         commentObject:{
                     comment: "",
                     rate: "",
-                     elementId: "",
+                     elementId: this.props.id,
                 },
     }
 
@@ -28,14 +28,14 @@ class AddComment extends Component{
             this.setState({done:true})
         }
     }
-componentDidMount(){
-    this.setState({
-        commentObject:{
-            ...this.state.commentObject,
-            elementId:this.props.id
-        }
-     })
-}
+// componentDidMount(){
+//     this.setState({
+//         commentObject:{
+//             ...this.state.commentObject,
+//             elementId:this.props.id
+//         }
+//      })
+// }
 
     render(){
         return(
